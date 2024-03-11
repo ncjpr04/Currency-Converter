@@ -1,5 +1,5 @@
 const BASE_URL =
-    `https://${formatDate(Date())}.currency-api.pages.dev/v1/currencies/`;
+    `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies`;
 
 const dropdowns = document.querySelectorAll(".dropdown select");
 const btn = document.querySelector("form button");
@@ -73,20 +73,6 @@ btn.addEventListener("click", (evt) => {
     evt.preventDefault();
     updateExchangeRate();
 });
-
-function formatDate(date) {
-    var d = new Date(date),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
-
-    if (month.length < 2)
-        month = '0' + month;
-    if (day.length < 2)
-        day = '0' + day;
-
-    return [year, month, day-1].join('-');
-}
 
 window.addEventListener("load", () => {
     updateExchangeRate();
